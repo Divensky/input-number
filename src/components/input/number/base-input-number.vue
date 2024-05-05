@@ -3,6 +3,8 @@ import { defineComponent, PropType, ref, computed, watch } from 'vue';
 import { classname } from '../../../utils/classname';
 import { allowedKeys } from './allowedKeys';
 
+type InputQuery = string | number | null;
+
 export default defineComponent({
   name: 'BaseInputNumber',
   props: {
@@ -11,7 +13,7 @@ export default defineComponent({
       default: false,
     },
     modelValue: {
-      type: [String, Number] as PropType<string | number | null>,
+      type: [String, Number] as PropType<InputQuery>,
       default: null,
     },
     size: {
@@ -20,12 +22,16 @@ export default defineComponent({
     },
     hideSpinner: {
       type: Boolean,
-      default: true,
+      default: false,
+    },
+    hideErrors: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ['update:model-value'],
   setup(props, { emit }) {
-    const inputQuery = ref<string | number | null>(null);
+    const inputQuery = ref<InputQuery>(null);
     const errorMessage = ref('');
     watch(inputQuery, (newValue) => {
       emit('update:model-value', newValue);
@@ -40,8 +46,8 @@ export default defineComponent({
     );
 
     const onKeypress = (e: KeyboardEvent) => {
-      if (!allowedKeys.includes(e.key)) {
-        errorMessage.value = 'Пожалуйста, введите число';
+      if (!allowedKeys.includes(e.key) && !props.hideErrors) {
+        errorMessage.value = 'Please enter a number';
       }
     };
     const errors = computed(() => {
