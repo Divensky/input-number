@@ -1,19 +1,19 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component title="Example component" active></example-component>
+    <number-inputs title="Input Type Number Demo" active></number-inputs>
   </q-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import ExampleComponent from 'components/ExampleComponent.vue';
+import NumberInputs from 'components/NumberInputs.vue';
 
 export default defineComponent({
   name: 'IndexPage',
   props: {},
   components: {
-    ExampleComponent,
+    NumberInputs,
   },
 
   setup() {
