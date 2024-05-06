@@ -1,18 +1,40 @@
 # Quasar Inputs
 
-Welcome to Quasar Inputs!
+Welcome to Quasar Inputs demo!
 
-## Overview
+## Introduction
 
-Currently this app displays a Number input with custom validation.
+This repository hosts a demonstration of handling input validation for number-only fields using HTML `input type="number"` attribute and Quasar's `keyup` and `keydown` events.
 
 [See it in action](https://divensky.github.io/quasar-inputs/#/).
 
-## How to run in dev mode
+## Purpose
+
+The purpose of this demo is to showcase how browsers handle non-numeric inputs in number-only fields and the challenges it poses for traditional validation methods. It provides a practical example of custom validation using Quasar's events.
+
+## Features
+
+* Demonstrates how browsers interpret non-numeric inputs in number-only fields.
+* Highlights the limitations of traditional validation methods for such inputs.
+* Provides a hands-on demonstration of custom validation using Quasar's events.
+
+## Usage
+
+[Open the demo](https://divensky.github.io/quasar-inputs/#/).
+
+Or clone/download this repo and run:
 
 ```bash
-quasar dev
+npm run dev
 ```
+
+## Feedback
+
+Feedback is welcome! Please star the repo if you liked it.
+
+If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
+---
 
 ## How to deploy a static Vue app on a GitHub page
 

@@ -1,18 +1,37 @@
 <template>
   <div class="q-mx-lg">
     <h1>{{ title }}</h1>
-<p>Let's consider <pre class="text-accent">input type="number"</pre></p>
-<p>When a user types non-numbers in the input field intended for numbers only, some browsers (such as Firefox) display the letters typed. However, internally they don't recognize the non-numbers. They record an empty strig when a user types non-numbers. Most of the browsers do not display an error message when a user types non-numbers into a number input.</p>
-<p>This error message can be displayed in Quasar through the use of <strong>keyup</strong> and <strong>keydown</strong> events.</p>
-<p>See what happens when you enter numbers and non-numbers in these inputs:</p>
+    <p>
+      When users input non-numeric characters into a number-only field
+      <span class="text-accent number-inputs__code">input type="number"</span>,
+      browsers like Firefox may display them, but internally they're considered
+      invalid and recorded as empty strings.
+    </p>
+    <p>
+      Most browsers don't show error messages for this, potentially misleading
+      users into thinking their input is valid when it's not.
+    </p>
+    <p>
+      Since browsers convert non-numeric input to empty strings, traditional
+      validation methods won't work. To address this, here is a demo of custom
+      validation based on Quasar's <strong>keyup</strong> and
+      <strong>keydown</strong> events.
+    </p>
+    <p>
+      Let's see what happens when you enter numbers and non-numbers in these input
+      fields:
+    </p>
     <h2>Input number with validation</h2>
     <base-input-number v-model="input" />
-    <div>You entered the value: <strong>{{ inputDisplay }}</strong></div>
+    <div>
+      Received value: <strong>{{ inputDisplay }}</strong>
+    </div>
 
     <h2>Input number without validation</h2>
-    <base-input-number v-model="input" :hide-errors="true"/>
-    <p>You entered the value: <strong>{{ inputDisplay }}</strong></p>
-
+    <base-input-number v-model="input" :hide-errors="true" />
+    <p>
+      Received value: <strong>{{ inputDisplay }}</strong>
+    </p>
   </div>
 </template>
 
@@ -35,8 +54,15 @@ export default defineComponent({
 
   setup() {
     const input = ref(null);
-    const inputDisplay = computed(() => input.value === '' ? '(empty string)' : input.value )
-    return {input, inputDisplay};
+    const inputDisplay = computed(() =>
+      input.value === '' ? '(empty string)' : input.value
+    );
+    return { input, inputDisplay };
   },
 });
 </script>
+<style scoped lang="scss">
+.number-inputs__code {
+  font-family: monospace;
+}
+</style>
