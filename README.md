@@ -61,9 +61,26 @@ Example:
      publicPath: '/quasar-inputs/',
 ```
 
+If this is a Vite app (not a Quasar app) then the file to change the settings is `vite.config.ts` and you want to include a line `base: "/repo-name/"`, for example:
+```
+export default defineConfig({
+  base: "/my-repo-example/",  
+});
+```
+
+Additionally, in this case you need to update the Vue router settings with the correct path, for example:
+
+```
+const router = createRouter({
+  history: createWebHistory('/my-repo-example/'),
+});
+```
+
 2. Run the command: `npm run build`
 
 It runs `quasar build` in Vite. This command generates a `/dist/spa` directory containing the built files.
+
+Make sure it generated the correct path. Opened the generated `index.html` file and look for asset paths in its `head`. The correct ones should include the user name and repo name like this: `https://divensky.github.io/my-repo/assets/index.ef5b4270.js`.
 
 3. Switch to a branch dedicated to GitHub Pages deployment, let's call it `gh-pages`:
 
