@@ -10,12 +10,12 @@ This repository hosts a demonstration of handling input validation for number-on
 
 ## Purpose
 
-The purpose of this demo is to showcase how browsers handle non-numeric inputs in number-only fields and the challenges it poses for traditional validation methods. It provides a practical example of custom validation using Quasar's events.
+The purpose of this demo is to showcase how browsers handle non-numeric inputs in number-only fields. It provides a practical example of custom validation using Quasar's events.
 
 ## Features
 
 * Demonstrates how browsers interpret non-numeric inputs in number-only fields.
-* Highlights the limitations of traditional validation methods for such inputs.
+* Highlights the [limitations](https://bugzilla.mozilla.org/show_bug.cgi?id=1855719) of traditional validation methods for such inputs.
 * Provides a hands-on demonstration of custom validation using Quasar's events.
 
 ## Usage
